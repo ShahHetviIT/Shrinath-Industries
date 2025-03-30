@@ -1,0 +1,112 @@
+.service-detail {
+  margin-bottom: 4rem;
+  padding-top: 2rem;
+  scroll-margin-top: 100px;
+}
+
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.service-detail-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  background-color: var(--light-color);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-detail-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+.service-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.service-image-placeholder {
+  background-color: var(--secondary-color);
+  height: 300px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.service-description p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.service-features-title,
+.service-benefits-title {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.service-features-list,
+.service-benefits-list {
+  padding-left: 1.5rem;
+}
+
+.service-feature-item,
+.service-benefit-item {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.service-feature-item::before,
+.service-benefit-item::before {
+  content: '•';
+  position: absolute;
+  left: -0.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .service-detail-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-image-placeholder {
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+  
+  .service-detail-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .service-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .service-detail-title {
+    font-size: 1.5rem;
+  }
+}
