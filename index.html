@@ -4,7 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta name="description" content="%COMPANY_NAME% - %COMPANY_TAGLINE%" />
+    <title>%COMPANY_NAME% | Powder Coating & Fabrication Services</title>
+    <script>
+      // Fallback for title if env vars aren't injected
+      window.addEventListener('load', function() {
+        if (document.title.includes('%COMPANY_NAME%')) {
+          document.title = "Shreenath Industries | Powder Coating & Fabrication Services";
+          const metaDescription = document.querySelector('meta[name="description"]');
+          if (metaDescription && metaDescription.content.includes('%COMPANY_NAME%')) {
+            metaDescription.content = "Shreenath Industries - Specialists in powder coating, fabrication, and electrical panels for industrial solutions.";
+          }
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>

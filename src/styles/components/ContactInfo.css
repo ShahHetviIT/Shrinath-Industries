@@ -1,0 +1,109 @@
+.contact-info-container {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  color: var(--white);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.info-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  min-width: 30px;
+  margin-top: 0.25rem;
+}
+
+.info-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.info-content a {
+  color: var(--light-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.info-content a:hover,
+.whatsapp-link:hover {
+  color: var(--accent-color);
+}
+
+.whatsapp-link {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.social-media h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.social-icon.whatsapp:hover {
+  background-color: #25D366;
+  color: var(--white);
+}
+
+.business-hours h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-info-container {
+    margin-bottom: 2rem;
+  }
+} 
