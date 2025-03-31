@@ -1,9 +1,12 @@
 import { FaUsers, FaCog, FaAward, FaHandshake } from 'react-icons/fa';
 import CTA from '../../components/common/CTA';
 import Layout from '../../components/layout/Layout';
+import config from '../../config/config';
 import '../../styles/pages/AboutPage.css';
 
 const AboutPage = () => {
+  const { companyName, organizationDetails } = config;
+
   const values = [
     {
       id: 1,
@@ -49,15 +52,12 @@ const AboutPage = () => {
               <div className="about-text">
                 <h2 className="section-title text-left">Our Story</h2>
                 <p className="about-paragraph">
-                  Established in 2010, Shreenath Industries has grown to become a trusted name in powder coating, 
-                  fabrication, and electrical panel manufacturing. What started as a small workshop has evolved 
-                  into a comprehensive industrial facility equipped with state-of-the-art technology and a team 
-                  of skilled professionals.
+                  {organizationDetails.introduction}
                 </p>
                 <p className="about-paragraph">
-                  Our journey has been defined by a constant pursuit of excellence, innovation, and customer satisfaction. 
-                  Over the years, we have expanded our capabilities, refined our processes, and built strong relationships 
-                  with clients across various industries.
+                  Established on {organizationDetails.established}, {companyName} has grown to become a trusted name in 
+                  electrical panel manufacturing and electrical contracting. Under the leadership of {organizationDetails.contactPerson}, 
+                  we have built a reputation for quality and reliability in the industry.
                 </p>
                 <p className="about-paragraph">
                   Today, we continue to uphold our founding principles of quality, reliability, and integrity in 
@@ -101,12 +101,12 @@ const AboutPage = () => {
               <div className="why-choose-text">
                 <h2 className="section-title text-left">Why Choose Us</h2>
                 <ul className="why-choose-list">
-                  <li>Over a decade of industry experience</li>
-                  <li>Comprehensive solutions under one roof</li>
-                  <li>Focus on quality control and assurance</li>
-                  <li>Timely delivery and competitive pricing</li>
-                  <li>Dedicated customer support</li>
-                  <li>Commitment to sustainability and ethical practices</li>
+                  <li>Established in 2006 with extensive industry experience</li>
+                  <li>In-house fabrication and powder coating facility</li>
+                  <li>Specialized in various types of electrical panels</li>
+                  <li>Government approved electrical contractor</li>
+                  <li>Dedicated customer support and after-sales service</li>
+                  <li>Commitment to quality, safety, and reliability</li>
                 </ul>
               </div>
               
@@ -123,7 +123,7 @@ const AboutPage = () => {
 
         <CTA 
           title="Ready to Collaborate?" 
-          description="Partner with us for your industrial manufacturing needs and experience the difference." 
+          description="Partner with us for your electrical panel manufacturing needs and experience the difference." 
           buttonText="Contact Us" 
           buttonLink="/contact" 
         />

@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
+import * as FaIcons from 'react-icons/fa';
 import '../../styles/components/ServiceDetail.css';
 
 const ServiceDetail = ({ service }) => {
+  // Dynamically get the icon component from the string name
+  const IconComponent = service.icon && FaIcons[service.icon] ? FaIcons[service.icon] : FaIcons.FaTools;
+
   return (
     <div className="service-detail" id={service.id}>
       <div className="service-detail-header">
-        <div className="service-detail-icon">{service.icon}</div>
+        <div className="service-detail-icon"><IconComponent /></div>
         <h2 className="service-detail-title">{service.title}</h2>
       </div>
       
@@ -47,7 +51,7 @@ ServiceDetail.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    icon: PropTypes.node.isRequired,
+    icon: PropTypes.string, // Now it's a string, not a node
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     benefits: PropTypes.arrayOf(PropTypes.string).isRequired
   }).isRequired

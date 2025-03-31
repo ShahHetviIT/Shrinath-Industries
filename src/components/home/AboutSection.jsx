@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { FaCheckCircle } from 'react-icons/fa';
+import config from '../../config/config';
 import '../../styles/components/AboutSection.css';
 
 const AboutSection = () => {
+  const { companyName, organizationDetails } = config;
+  
   const highlights = [
-    'Over 10 years of industry experience',
-    'State-of-the-art manufacturing facility',
-    'Highly skilled technical team',
-    'Focus on quality and customer satisfaction'
+    'Established in 2006 with extensive experience',
+    'In-house fabrication and powder coating facility',
+    'Manufacturing various types of electrical panels',
+    'Govt. approved electrical contractor'
   ];
 
   const handleLinkClick = () => {
@@ -22,11 +25,9 @@ const AboutSection = () => {
       <div className="container">
         <div className="about-content">
           <div className="about-text">
-            <h2 className="section-title text-left">About Shreenath Industries</h2>
+            <h2 className="section-title text-left">About {companyName}</h2>
             <p className="about-description">
-              Shreenath Industries is a leading manufacturer specializing in powder coating, fabrication, and electrical panels. 
-              With state-of-the-art facilities and a team of experienced professionals, we deliver high-quality industrial solutions 
-              tailored to meet the unique needs of our clients.
+              {organizationDetails.introduction}
             </p>
 
             <div className="about-highlights">

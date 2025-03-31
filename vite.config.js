@@ -6,6 +6,12 @@ export default defineConfig(({ mode }) => {
   // Load env file based on `mode` in the current directory.
   // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   const env = loadEnv(mode, process.cwd(), '')
+  
+  // Create a properly formatted define object
+  const envWithStringValues = {};
+  Object.keys(env).forEach(key => {
+    envWithStringValues[`import.meta.env.${key}`] = JSON.stringify(env[key]);
+  });
 
   return {
     plugins: [react()],
@@ -18,8 +24,6 @@ export default defineConfig(({ mode }) => {
       },
     },
     // Define env variables to be replaced in the client code
-    define: {
-      'import.meta.env': env
-    }
+    define: envWithStringValues
   }
 })
