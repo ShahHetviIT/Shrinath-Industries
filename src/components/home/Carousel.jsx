@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import config from '../../config/config';
 import img1 from '../../assets/img-1.jpg';
 import img2 from '../../assets/img-2.jpg';
 import '../../styles/components/Carousel.css';
 
 const Carousel = () => {
+  const { companyName } = config;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
       id: 1,
       image: img1,
-      alt: 'Shreenath Industries Facility',
-      title: 'Quality Manufacturing Solutions',
-      description: 'Experts in Powder Coating, Fabrication & Electrical Panels'
+      alt: 'SHRINATH INDUSTRIES Facility',
+      title: 'Electrical Panel Manufacturing',
+      description: 'HT & LT Panels, MCC Panels, APFC & PLC Based Automation Panels'
     },
     {
       id: 2,
       image: img2,
-      alt: 'Shreenath Industries Services',
-      title: 'Precision Engineering',
-      description: 'Delivering Excellence in Every Project'
+      alt: 'SHRINATH INDUSTRIES Services',
+      title: 'Licensed Electrical Contractor',
+      description: 'Govt. Approved for Electrical Installation & Consultancy'
     }
   ];
 

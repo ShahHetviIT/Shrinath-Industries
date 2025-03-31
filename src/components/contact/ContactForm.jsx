@@ -1,7 +1,18 @@
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
+import config from '../../config/config';
 import '../../styles/components/ContactForm.css';
 
+// EmailJS service IDs from environment variables
+const EMAILJS_SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
+const EMAILJS_USER_ID = import.meta.env.EMAILJS_PUBLIC_KEY;
+
 const ContactForm = () => {
+  // Company email from config, with fallback
+  const companyEmail = config.contactInfo?.email;
+  const companyName = config.companyName;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +22,8 @@ const ContactForm = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,19 +33,69 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data submitted:', formData);
-    // Here you would typically send the data to your backend
-    // For now, we'll just show a success message
-    setFormSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      console.log('Sending email with data:', formData);
+      
+      // Initialize EmailJS with your user ID
+      emailjs.init(EMAILJS_USER_ID);
+      
+      // Format the message to include sender details
+      const formattedMessage = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}
+      `;
+      
+      // Prepare the template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        subject: `${formData.subject} - Contact from ${formData.name}`,
+        message: formattedMessage,
+        to_name: companyName,
+        to_email: companyEmail,
+        reply_to: formData.email
+      };
+      
+      console.log('Using EmailJS with:', {
+        serviceId: EMAILJS_SERVICE_ID,
+        templateId: EMAILJS_TEMPLATE_ID,
+        userId: EMAILJS_USER_ID
+      });
+      
+      // Send the email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+      
+      console.log('Email sent successfully:', result);
+      setFormSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setError('Failed to send your message. Please try again or contact us directly at ' + companyEmail);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -113,8 +176,18 @@ const ContactForm = () => {
             ></textarea>
           </div>
           
-          <button type="submit" className="btn submit-btn">
-            Send Message
+          {error && (
+            <div className="error-message">
+              <p>{error}</p>
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className="btn submit-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       )}

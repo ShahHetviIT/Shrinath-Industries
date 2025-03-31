@@ -1,72 +1,40 @@
-import { FaSprayCan, FaTools, FaLightbulb } from 'react-icons/fa';
-import ServiceDetail from '../../components/services/ServiceDetail';
+import { useState, useEffect } from 'react';
+import { useSearchParams, useLocation } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
 import CTA from '../../components/common/CTA';
 import Layout from '../../components/layout/Layout';
+import config from '../../config/config';
 import '../../styles/pages/ServicesPage.css';
 
 const ServicesPage = () => {
-  const services = [
-    {
-      id: 'powder-coating',
-      title: 'Powder Coating',
-      icon: <FaSprayCan />,
-      description: 'Our powder coating service provides a high-quality, durable finish for metal components and products. Using advanced techniques and equipment, we ensure exceptional results that are resistant to chipping, scratching, fading, and wearing.',
-      features: [
-        'Environmentally friendly process with minimal waste',
-        'Wide range of colors and finishes available',
-        'Quick turnaround times',
-        'Suitable for various metal products and components',
-        'Even coating application for consistent results'
-      ],
-      benefits: [
-        'Superior durability compared to traditional liquid paint',
-        'Excellent resistance to UV rays, moisture, and corrosion',
-        'Cost-effective long-term solution',
-        'Environmentally friendly with low VOC emissions',
-        'Aesthetic appeal with smooth, attractive finish'
-      ]
-    },
-    {
-      id: 'fabrication',
-      title: 'Fabrication',
-      icon: <FaTools />,
-      description: 'Our fabrication services include custom metal fabrication for a wide range of industrial applications. We work with various metals and utilize precision cutting, forming, and welding techniques to create high-quality components and structures according to client specifications.',
-      features: [
-        'Custom metal fabrication for specific requirements',
-        'Expert welding and joining methods',
-        'Precision cutting and forming',
-        'Sheet metal work and structural fabrication',
-        'Quality assurance at every stage'
-      ],
-      benefits: [
-        'Tailored solutions for your specific needs',
-        'High-quality, precise manufacturing',
-        'Reduced assembly time and costs',
-        'Consistency in production',
-        'Expert advice and technical support throughout the project'
-      ]
-    },
-    {
-      id: 'electrical-panels',
-      title: 'Electrical Panels',
-      icon: <FaLightbulb />,
-      description: 'We design and manufacture high-quality electrical panels for industrial control systems. Our electrical panels are built according to industry standards, ensuring safety, reliability, and efficiency for your electrical control needs.',
-      features: [
-        'Custom panel design and engineering',
-        'Industry standard compliance',
-        'Integration of modern control technologies',
-        'Comprehensive testing before delivery',
-        'Technical documentation and support'
-      ],
-      benefits: [
-        'Enhanced safety and reliability',
-        'Improved electrical efficiency',
-        'Reduced downtime and maintenance',
-        'Streamlined control of electrical systems',
-        'Long-term operational savings'
-      ]
+  const { companyName, mainServices } = config;
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const serviceFromUrl = searchParams.get('service');
+  
+  const [selectedService, setSelectedService] = useState(serviceFromUrl || mainServices[0]?.id);
+
+  // Update selected service when URL parameter changes
+  useEffect(() => {
+    if (serviceFromUrl) {
+      setSelectedService(serviceFromUrl);
+      // If coming from home page, scroll to content
+      if (location.state?.fromHome) {
+        const servicesContent = document.querySelector('.services-content');
+        if (servicesContent) {
+          servicesContent.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
-  ];
+  }, [serviceFromUrl, location.state]);
+
+  // Helper to get icon component
+  const getIconComponent = (iconName) => {
+    const IconComponent = iconName && FaIcons[iconName] ? FaIcons[iconName] : FaIcons.FaTools;
+    return <IconComponent />;
+  };
+
+  const currentService = mainServices.find(service => service.id === selectedService);
 
   return (
     <Layout>
@@ -75,24 +43,97 @@ const ServicesPage = () => {
           <div className="container">
             <h1 className="page-title">Our Services</h1>
             <p className="page-subtitle">
-              Shreenath Industries offers a comprehensive range of services to meet your industrial needs. 
-              Our expertise in powder coating, fabrication, and electrical panels ensures high-quality results
-              for your projects.
+              {companyName} offers comprehensive electrical panel manufacturing and facility services.
+              Our expertise ensures high-quality results for your industrial electrical requirements.
             </p>
           </div>
         </section>
 
-        <section className="services-list section">
+        <section className="services-content section">
           <div className="container">
-            {services.map(service => (
-              <ServiceDetail key={service.id} service={service} />
-            ))}
+            <div className="services-layout">
+              {/* Sidebar Navigation */}
+              <div className="services-sidebar">
+                <h2 className="sidebar-title">Our Services</h2>
+                <div className="service-list">
+                  {mainServices.map((service) => (
+                    <div
+                      key={service.id}
+                      className={`service-item ${selectedService === service.id ? 'active' : ''}`}
+                      onClick={() => setSelectedService(service.id)}
+                    >
+                      <div className="service-item-icon">
+                        {getIconComponent(service.icon)}
+                      </div>
+                      <span className="service-item-title">{service.title}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Main Content Area */}
+              <div className="services-main">
+                {currentService && (
+                  <div className="service-detail">
+                    <div className="service-detail-header">
+                      <div className="service-detail-icon">
+                        {getIconComponent(currentService.icon)}
+                      </div>
+                      <h2 className="service-detail-title">{currentService.title}</h2>
+                    </div>
+
+                    <div className="service-detail-image">
+                      <img src={currentService.image} alt={currentService.title} />
+                    </div>
+
+                    <p className="service-detail-description">
+                      {currentService.description}
+                    </p>
+
+                    {currentService.subServices ? (
+                      <div className="sub-services-section">
+                        <h3 className="section-title">Our {currentService.title} Services</h3>
+                        <div className="sub-services-grid">
+                          {currentService.subServices.map((subService) => (
+                            <div key={subService.id} className="sub-service-card">
+                              <div className="sub-service-image">
+                                <img src={subService.image} alt={subService.title} />
+                              </div>
+                              <div className="sub-service-content">
+                                <div className="sub-service-icon">
+                                  {getIconComponent(subService.icon)}
+                                </div>
+                                <h4 className="sub-service-title">{subService.title}</h4>
+                                <p className="sub-service-description">
+                                  {subService.description}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : currentService.equipment ? (
+                      <div className="equipment-section">
+                        <h3 className="section-title">Equipment & Machinery</h3>
+                        <ul className="equipment-list">
+                          {currentService.equipment.map((item, index) => (
+                            <li key={index} className="equipment-item">
+                              <FaIcons.FaCheckCircle className="check-icon" /> {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </section>
 
         <CTA 
           title="Need Custom Solutions?" 
-          description="Contact our team to discuss your specific requirements and get a personalized quote." 
+          description="Contact our team to discuss your specific electrical panel requirements and get a personalized quote." 
           buttonText="Contact Us" 
           buttonLink="/contact" 
         />

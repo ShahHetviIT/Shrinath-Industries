@@ -1,25 +1,28 @@
 import { FaQuoteLeft } from 'react-icons/fa';
+import config from '../../config/config';
 import '../../styles/components/Testimonials.css';
 
 const Testimonials = () => {
+  const { companyName } = config;
+  
   const testimonials = [
     {
       id: 1,
       name: 'Rajesh Kumar',
-      company: 'ABC Industries',
-      text: 'Shreenath Industries has been our trusted partner for powder coating services for over 5 years. Their commitment to quality and timely delivery is exceptional.',
+      company: 'ABC Chemical Industries',
+      text: `${companyName} has been our trusted partner for electrical panel manufacturing for over 5 years. Their LT panels are exceptionally reliable and their service support is outstanding.`,
     },
     {
       id: 2,
       name: 'Sunil Patel',
       company: 'XYZ Engineering',
-      text: 'We have been using their fabrication services for our projects, and the results have always been outstanding. Their attention to detail and precision is commendable.',
+      text: `We've installed multiple MCC panels from ${companyName} in our manufacturing unit. Their attention to detail and precision in panel wiring is commendable.`,
     },
     {
       id: 3,
       name: 'Amit Shah',
-      company: 'PQR Enterprises',
-      text: 'The electrical panels provided by Shreenath Industries are of the highest quality. Their technical expertise and customer service are truly remarkable.',
+      company: 'PQR Pharma',
+      text: `The PLC automation panels provided by ${companyName} have significantly improved our production efficiency. Their technical expertise and after-sales service are truly remarkable.`,
     }
   ];
 

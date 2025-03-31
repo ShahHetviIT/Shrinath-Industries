@@ -1,22 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="%COMPANY_NAME% - %COMPANY_TAGLINE%" />
-    <title>%COMPANY_NAME% | Powder Coating & Fabrication Services</title>
+    <title>%COMPANY_NAME% | Electrical Panel Manufacturing</title>
+    <meta name="description" content="%COMPANY_NAME% - Electrical Panel Mfg. & Electrical Licensed Contractor. Serving since 2006." />
     <script>
-      // Fallback for title if env vars aren't injected
-      window.addEventListener('load', function() {
-        if (document.title.includes('%COMPANY_NAME%')) {
-          document.title = "Shreenath Industries | Powder Coating & Fabrication Services";
-          const metaDescription = document.querySelector('meta[name="description"]');
-          if (metaDescription && metaDescription.content.includes('%COMPANY_NAME%')) {
-            metaDescription.content = "Shreenath Industries - Specialists in powder coating, fabrication, and electrical panels for industrial solutions.";
-          }
+      // Fallback if .env variables are not injected
+      window.onload = function() {
+        if (document.title === '%COMPANY_NAME% | Electrical Panel Manufacturing') {
+          document.title = 'SHRINATH INDUSTRIES | Electrical Panel Manufacturing';
         }
-      });
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription.content.includes('%COMPANY_NAME%')) {
+          metaDescription.content = metaDescription.content.replace('%COMPANY_NAME%', 'SHRINATH INDUSTRIES');
+        }
+      };
     </script>
   </head>
   <body>
