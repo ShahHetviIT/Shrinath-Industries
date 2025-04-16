@@ -98,7 +98,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .service-detail {
@@ -271,6 +271,222 @@
   transform: scale(1.02);
 }
 
+/* Image carousel styles */
+.service-gallery {
+  /* margin-bottom: 2rem; */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-carousel {
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Sliding animations */
+.carousel-container.slide-left .carousel-image {
+  animation: slideLeftOut 0.5s forwards;
+}
+
+.carousel-container.slide-right .carousel-image {
+  animation: slideRightOut 0.5s forwards;
+}
+
+@keyframes slideLeftOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideRightOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.carousel-container:hover .carousel-control {
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Fullscreen button */
+.carousel-control.fullscreen {
+  top: 10px;
+  right: 10px;
+  transform: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Fullscreen overlay */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.fullscreen-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-close {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s;
+}
+
+.fullscreen-close:hover {
+  color: var(--secondary-color);
+}
+
+.fullscreen-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.fullscreen-nav:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.fullscreen-nav.prev {
+  left: -27px;
+}
+
+.fullscreen-nav.next {
+  right: -27px;
+}
+
+.fullscreen-counter {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .services-layout {
@@ -289,6 +505,20 @@
 
   .service-detail-image {
     aspect-ratio: 21/9;
+  }
+  
+  .fullscreen-nav {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .fullscreen-nav.prev {
+    left: -60px;
+  }
+  
+  .fullscreen-nav.next {
+    right: -60px;
   }
 }
 
@@ -316,5 +546,39 @@
   .service-detail-image {
     aspect-ratio: 4/3;
     margin: 1rem 0;
+  }
+
+  .carousel-container {
+    aspect-ratio: 4/3;
+  }
+  
+  .carousel-control {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+  }
+  
+  .fullscreen-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .fullscreen-nav.prev {
+    left: 10px;
+  }
+  
+  .fullscreen-nav.next {
+    right: 10px;
+  }
+  
+  .fullscreen-close {
+    top: -30px;
+    font-size: 1.5rem;
+  }
+  
+  .fullscreen-counter {
+    bottom: -30px;
+    font-size: 1rem;
   }
 } 

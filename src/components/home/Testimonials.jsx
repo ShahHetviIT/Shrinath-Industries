@@ -8,21 +8,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Rajesh Kumar',
-      company: 'ABC Chemical Industries',
-      text: `${companyName} has been our trusted partner for electrical panel manufacturing for over 5 years. Their LT panels are exceptionally reliable and their service support is outstanding.`,
+      name: 'Rajesh Mehta',
+      company: 'Mehta Pharmaceutical Industries',
+      text: `${companyName} has been our trusted partner for electrical panel manufacturing for over 7 years. Their PCC panels have enhanced our facility's power distribution system with exceptional reliability and their prompt service support is outstanding.`,
     },
     {
       id: 2,
       name: 'Sunil Patel',
-      company: 'XYZ Engineering',
-      text: `We've installed multiple MCC panels from ${companyName} in our manufacturing unit. Their attention to detail and precision in panel wiring is commendable.`,
+      company: 'Patel Engineering Works',
+      text: `We've installed multiple MCC panels from ${companyName} in our manufacturing unit. Their attention to detail in panel fabrication and precision in wiring work has resulted in zero downtime for our production line since installation.`,
     },
     {
       id: 3,
       name: 'Amit Shah',
-      company: 'PQR Pharma',
-      text: `The PLC automation panels provided by ${companyName} have significantly improved our production efficiency. Their technical expertise and after-sales service are truly remarkable.`,
+      company: 'Shah Automation Systems',
+      text: `The PLC automation panels provided by ${companyName} have significantly improved our production efficiency by 35%. Their technical expertise in designing custom control systems and responsive after-sales service make them our go-to electrical contractor.`,
     }
   ];
 
@@ -30,7 +30,7 @@ const Testimonials = () => {
     <section className="testimonials-section section">
       <div className="container">
         <h2 className="section-title">What Our Clients Say</h2>
-        <p className="section-subtitle">Hear from our satisfied customers</p>
+        <p className="section-subtitle">Trusted by leading manufacturers across industries</p>
         
         <div className="testimonials-grid">
           {testimonials.map((testimonial) => (

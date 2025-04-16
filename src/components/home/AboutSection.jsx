@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaCheckCircle } from 'react-icons/fa';
 import config from '../../config/config';
+import jatilImage from '../../assets/jatil-1.jpg';
 import '../../styles/components/AboutSection.css';
 
 const AboutSection = () => {
@@ -45,8 +46,9 @@ const AboutSection = () => {
           </div>
           
           <div className="about-image-container">
-            <div className="about-image-placeholder">
-              <div className="placeholder-content">
+            <div className="about-image">
+              <img src={jatilImage} alt="Jatil P. Shah - SHRINATH INDUSTRIES" />
+              <div className="image-caption">
                 <h3>Quality & Reliability</h3>
                 <p>Our Commitment to Excellence</p>
               </div>
