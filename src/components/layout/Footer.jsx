@@ -42,6 +42,9 @@ const Footer = () => {
                 <Link to="/services" className="footer-link" onClick={handleLinkClick}>Services</Link>
               </li>
               <li>
+                <Link to="/facilities" className="footer-link" onClick={handleLinkClick}>Facilities</Link>
+              </li>
+              <li>
                 <Link to="/contact" className="footer-link" onClick={handleLinkClick}>Contact</Link>
               </li>
             </ul>
@@ -50,21 +53,27 @@ const Footer = () => {
           <div className="footer-contact">
             <h3 className="footer-title">Contact Us</h3>
             <div className="contact-item">
-              <FaPhone className="contact-icon" />
+              <div className="contact-icon">
+                <FaMapMarkerAlt />
+              </div>
+              <p className="contact-text">{contactInfo.address}</p>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <FaPhone />
+              </div>
               <a href={`tel:${contactInfo.phone}`} className="contact-link">{contactInfo.phone}</a>
             </div>
             <div className="contact-item">
-              <FaEnvelope className="contact-icon" />
+              <div className="contact-icon">
+                <FaEnvelope />
+              </div>
               <a href={`mailto:${contactInfo.email}`} className="contact-link">{contactInfo.email}</a>
-            </div>
-            <div className="contact-item">
-              <FaMapMarkerAlt className="contact-icon" />
-              <p className="contact-text">{contactInfo.address}</p>
             </div>
           </div>
 
           <div className="footer-social">
-            <h3 className="footer-title">Follow Us</h3>
+            <h3 className="footer-title">Connect With Us</h3>
             <div className="social-icons">
               <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaFacebook />

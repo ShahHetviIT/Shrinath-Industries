@@ -6,21 +6,27 @@ import '../../styles/components/ServiceHighlights.css';
 const ServiceHighlights = () => {
   const { mainServices } = config;
   
-  // Using our main service categories for highlights
-  const highlightedServices = mainServices.map(service => {
-    // Get the icon component dynamically
-    const IconComponent = service.icon && FaIcons[service.icon] ? FaIcons[service.icon] : FaIcons.FaLightbulb;
-    
-    return {
-      id: service.id,
-      icon: <IconComponent className="service-icon" />,
-      title: service.title,
-      description: service.description.length > 100 
-        ? service.description.substring(0, 100) + '...' 
-        : service.description,
-      link: `/services?service=${service.id}`
-    };
-  });
+  // Get only the first service (Electrical Panels)
+  const firstService = mainServices.length > 0 ? mainServices[0] : null;
+  
+  // Helper function to get icon component
+  const getIconComponent = (iconName) => {
+    const IconComponent = iconName && FaIcons[iconName] ? FaIcons[iconName] : FaIcons.FaLightbulb;
+    return <IconComponent className="service-icon" />;
+  };
+  
+  // Create the highlighted service array with only the first service
+  const highlightedServices = firstService ? [
+    {
+      id: firstService.id,
+      icon: getIconComponent(firstService.icon),
+      title: firstService.title,
+      description: firstService.description.length > 100 
+        ? firstService.description.substring(0, 100) + '...' 
+        : firstService.description,
+      link: `/services?service=${firstService.id}`
+    }
+  ] : [];
 
   const handleLinkClick = () => {
     window.scrollTo({
@@ -33,7 +39,7 @@ const ServiceHighlights = () => {
     <section className="service-highlights section">
       <div className="container">
         <h2 className="section-title">Our Services</h2>
-        <p className="section-subtitle">Quality electrical panel manufacturing and facility services for industrial needs</p>
+        <p className="section-subtitle">Quality electrical panel manufacturing for industrial needs</p>
         
         <div className="services-grid">
           {highlightedServices.map(service => (

@@ -1,17 +1,144 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import CTA from '../../components/common/CTA';
 import Layout from '../../components/layout/Layout';
 import config from '../../config/config';
 import '../../styles/pages/ServicesPage.css';
+import React from 'react';
+
+const ImageCarousel = ({ images, serviceId }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
+  const carouselRef = useRef(null);
+
+  // Reset carousel to first image when service changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [serviceId]);
+
+  // Add escape key handler for fullscreen
+  useEffect(() => {
+    const handleEscapeKey = (e) => {
+      if (e.key === 'Escape' && fullscreen) {
+        setFullscreen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [fullscreen]);
+
+  const goToNext = () => {
+    if (animating) return;
+    setAnimating(true);
+    
+    if (carouselRef.current) {
+      // Apply animation class
+      carouselRef.current.classList.add('slide-left');
+      
+      // After animation completes, change the image and reset
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        carouselRef.current.classList.remove('slide-left');
+        setAnimating(false);
+      }, 500); // Match this with CSS transition duration
+    }
+  };
+
+  const goToPrev = () => {
+    if (animating) return;
+    setAnimating(true);
+    
+    if (carouselRef.current) {
+      // Apply animation class
+      carouselRef.current.classList.add('slide-right');
+      
+      // After animation completes, change the image and reset
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        carouselRef.current.classList.remove('slide-right');
+        setAnimating(false);
+      }, 500); // Match this with CSS transition duration
+    }
+  };
+  
+  const toggleFullscreen = () => {
+    setFullscreen(!fullscreen);
+  };
+
+  return (
+    <div className="image-carousel">
+      <div className={`carousel-container ${fullscreen ? 'fullscreen' : ''}`} ref={carouselRef}>
+        <img 
+          src={images[currentIndex]} 
+          alt={`Slide ${currentIndex + 1}`} 
+          className="carousel-image"
+        />
+        
+        <button className="carousel-control prev" onClick={goToPrev}>
+          <FaIcons.FaChevronLeft />
+        </button>
+        <button className="carousel-control next" onClick={goToNext}>
+          <FaIcons.FaChevronRight />
+        </button>
+        
+        <button className="carousel-control fullscreen" onClick={toggleFullscreen}>
+          {fullscreen ? <FaIcons.FaCompress /> : <FaIcons.FaExpand />}
+        </button>
+        
+        {!fullscreen && (
+          <div className="carousel-indicators">
+            {images.map((_, index) => (
+              <span
+                key={index}
+                className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => {
+                  if (animating) return;
+                  if (index > currentIndex) {
+                    goToNext();
+                  } else if (index < currentIndex) {
+                    goToPrev();
+                  }
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      
+      {fullscreen && (
+        <div className="fullscreen-overlay" onClick={toggleFullscreen}>
+          <div className="fullscreen-content" onClick={(e) => e.stopPropagation()}>
+            <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="fullscreen-image" />
+            <button className="fullscreen-close" onClick={toggleFullscreen}>
+              <FaIcons.FaTimes />
+            </button>
+            <button className="fullscreen-nav prev" onClick={goToPrev}>
+              <FaIcons.FaChevronLeft />
+            </button>
+            <button className="fullscreen-nav next" onClick={goToNext}>
+              <FaIcons.FaChevronRight />
+            </button>
+            <div className="fullscreen-counter">
+              {currentIndex + 1} / {images.length}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const ServicesPage = () => {
   const { companyName, mainServices } = config;
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const serviceFromUrl = searchParams.get('service');
-  
+
   const [selectedService, setSelectedService] = useState(serviceFromUrl || mainServices[0]?.id);
 
   // Update selected service when URL parameter changes
@@ -82,13 +209,32 @@ const ServicesPage = () => {
                       <h2 className="service-detail-title">{currentService.title}</h2>
                     </div>
 
-                    <div className="service-detail-image">
-                      <img src={currentService.image} alt={currentService.title} />
-                    </div>
+                    <div>
+                    {currentService.galleryImages ? (
+                      <div className="service-gallery">
+                        <ImageCarousel
+                          images={currentService.galleryImages}
+                          serviceId={currentService.id}
+                        />
+                      </div>
+                    ) : (
+                      <div className="service-detail-image">
+                        <img src={currentService.image} alt={currentService.title} />
+                      </div>
+                    )}
 
-                    <p className="service-detail-description">
-                      {currentService.description}
-                    </p>
+                    <div>
+                      <p className="service-detail-description">
+                        {currentService.description.split('• ').map((text, index) =>
+                          index === 0 ? text : (
+                            <React.Fragment key={index}>
+                              <br />• {text}
+                            </React.Fragment>
+                          )
+                        )}
+                      </p>
+                    </div>
+                    </div>
 
                     {currentService.subServices ? (
                       <div className="sub-services-section">
@@ -131,11 +277,11 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <CTA 
-          title="Need Custom Solutions?" 
-          description="Contact our team to discuss your specific electrical panel requirements and get a personalized quote." 
-          buttonText="Contact Us" 
-          buttonLink="/contact" 
+        <CTA
+          title="Need Custom Solutions?"
+          description="Contact our team to discuss your specific electrical panel requirements and get a personalized quote."
+          buttonText="Contact Us"
+          buttonLink="/contact"
         />
       </div>
     </Layout>

@@ -86,13 +86,14 @@ img {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 4rem 0 0;
+  background-color: var(--light-color);
 }
 
 .section-title {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
@@ -106,7 +107,7 @@ img {
 /* Media Queries */
 @media (max-width: 768px) {
   .section {
-    padding: 2rem 0;
+    padding: 1.5rem 0 0 0;
   }
   
   .section-title {
