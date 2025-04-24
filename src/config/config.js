@@ -45,7 +45,7 @@ export const config = {
     phone: import.meta.env.PHONE_NUMBER,
     email: import.meta.env.EMAIL,
     address: import.meta.env.ADDRESS,
-    businessHours: import.meta.env.BUSINESS_HOURS,
+    businessHours: JSON.parse(import.meta.env.BUSINESS_HOURS),
   },
 
   // Social Media Links
