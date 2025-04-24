@@ -27,6 +27,13 @@ import hydraulicPunching2 from '../assets/hydrolic-punching-2.jpg';
 import oven1 from '../assets/oven-1.jpg';
 import oven2 from '../assets/oven-2.jpg';
 import oven3 from '../assets/oven-3.jpg';
+import ACPanel from '../assets/ACPanel.jpeg';
+import HTLTPanel from '../assets/electrical-ht-lt-panel.jpg';
+import AFCBPanel from '../assets/apfc-panels.png';
+import govtPanel from '../assets/gvt.jpeg';
+import PlcPanel from '../assets/plc-based-panel.jpg';
+import MccPanel from '../assets/MCC-Panel.jpeg';
+import Panel2 from '../assets/panel-2.jpg';
 
 export const config = {
   // Company Information
@@ -44,12 +51,11 @@ export const config = {
   // Social Media Links
   socialMedia: {
     whatsapp: import.meta.env.WHATSAPP,
-    facebook: import.meta.env.FACEBOOK,
-    instagram: import.meta.env.INSTAGRAM,
   },
 
   // Maps
   googleMapsUrl: import.meta.env.GOOGLE_MAPS_URL,
+  googleMapsUrlImage: import.meta.env.GOOGLE_MAPS_URL_IMAGE,
 
   // Organization Details
   organizationDetails: {
@@ -72,49 +78,49 @@ export const config = {
       title: 'Electrical Panels',
       description: 'Manufacturing all types of Electrical, Instrumentation & Automation control panels, also we are Govt. approved electrical contractor engaged in installation of electrical projects and GEB consultancy work.',
       icon: 'FaBolt',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
+      image: Panel2,
       subServices: [
         {
           id: 'ht-lt-panel',
           title: 'HT & LT Panel',
           description: 'Our extensive and highly usable range of control panels includes Main L.T. Panel that is available in compartmentalized constructions. It consists of incoming ACB or MCCB and outgoings MCCB\'S or SDFU\'S as per the requirement of the customer.',
           icon: 'FaChargingStation',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: HTLTPanel
         },
         {
           id: 'mcc-panel',
           title: 'MCC Panel',
           description: 'Our complete range of Motor control Center is capable to feed larger loads and comes with multiple power stabs. This way our MCC supports high capacity industrial motors.',
           icon: 'FaIndustry',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: MccPanel
         },
         {
           id: 'apfc-panel',
           title: 'APFC Panel',
           description: 'Our range of APFC panels is capable for maintaining the desired PF as per the clients requirement, and they are designed accurately after studying nature of load of customers so as to give maximum benefits.',
           icon: 'FaWaveSquare',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: AFCBPanel
         },
         {
           id: 'ac-drives-panel',
           title: 'AC Drives Panel',
           description: 'We supply AC drive panels which are widely used as speed controllers of alternate current induction motor. Widely used across various industries, AC drives are used to control the speed of motor by controlling frequency of supply. AC Drive panels offered by us are manufactured using high quality material and electrical components procured from quality conscious manufacturers. This allows us to deliver optimum functionality based drive panels that help in monitoring of machines and delivering superior on-site operator control of machines.',
           icon: 'FaCogs',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: ACPanel
         },
         {
           id: 'plc-panel',
           title: 'PLC Based Automation Panel',
           description: 'Our company is engaged in designing and manufacturing of automation panels that are having an excellent appearance. We have the facility to manufacture these in different shapes like one sided, double sided and desk type. All panels are hard wired, plc based, electrically controlled. These automation panels are made using careful wiring to provide best results.',
           icon: 'FaMicrochip',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: PlcPanel
         },
         {
           id: 'electrical-contractor',
           title: 'Govt. approved Electrical Contractor',
           description: 'We are Govt. approved electrical contractor engaged in GEB consultancy work, also we take electrification project work for Industries, offices, hotels, commercial buildings etc. All the projects are completed with through process covering all code of conducts laid for the same.',
           icon: 'FaBuilding',
-          image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+          image: govtPanel
         }
       ]
     },

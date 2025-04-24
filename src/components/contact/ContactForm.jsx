@@ -40,10 +40,10 @@ const ContactForm = () => {
 
     try {
       console.log('Sending email with data:', formData);
-      
+
       // Initialize EmailJS with your user ID
       emailjs.init(EMAILJS_USER_ID);
-      
+
       // Format the message to include sender details
       const formattedMessage = `
 Name: ${formData.name}
@@ -53,7 +53,7 @@ Phone: ${formData.phone}
 Message:
 ${formData.message}
       `;
-      
+
       // Prepare the template parameters
       const templateParams = {
         from_name: formData.name,
@@ -65,23 +65,23 @@ ${formData.message}
         to_email: companyEmail,
         reply_to: formData.email
       };
-      
+
       console.log('Using EmailJS with:', {
         serviceId: EMAILJS_SERVICE_ID,
         templateId: EMAILJS_TEMPLATE_ID,
         userId: EMAILJS_USER_ID
       });
-      
+
       // Send the email using EmailJS
       const result = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams
       );
-      
+
       console.log('Email sent successfully:', result);
       setFormSubmitted(true);
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -101,12 +101,12 @@ ${formData.message}
   return (
     <div className="contact-form-container">
       <h2 className="form-title">Send Us a Message</h2>
-      
+
       {formSubmitted ? (
         <div className="success-message">
           <p>Thank you for your message! We'll get back to you soon.</p>
-          <button 
-            className="btn mt-2" 
+          <button
+            className="btn mt-2"
             onClick={() => setFormSubmitted(false)}
           >
             Send Another Message
@@ -125,7 +125,7 @@ ${formData.message}
               required
             />
           </div>
-          
+
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="email">Email</label>
@@ -138,7 +138,7 @@ ${formData.message}
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
               <input
@@ -151,7 +151,7 @@ ${formData.message}
               />
             </div>
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="subject">Subject</label>
             <input
@@ -163,7 +163,7 @@ ${formData.message}
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="message">Message</label>
             <textarea
@@ -175,15 +175,15 @@ ${formData.message}
               required
             ></textarea>
           </div>
-          
+
           {error && (
             <div className="error-message">
               <p>{error}</p>
             </div>
           )}
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="btn submit-btn"
             disabled={isSubmitting}
           >

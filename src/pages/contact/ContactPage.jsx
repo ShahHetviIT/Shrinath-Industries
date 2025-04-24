@@ -5,7 +5,7 @@ import config from '../../config/config';
 import '../../styles/pages/ContactPage.css';
 
 const ContactPage = () => {
-  const { googleMapsUrl } = config;
+  const { googleMapsUrl, googleMapsUrlImage } = config;
 
   return (
     <Layout>
@@ -25,7 +25,7 @@ const ContactPage = () => {
               <div className="contact-info-wrapper">
                 <ContactInfo />
               </div>
-              
+
               <div className="contact-form-wrapper">
                 <ContactForm />
               </div>
@@ -36,16 +36,35 @@ const ContactPage = () => {
         <section className="map-section">
           <div className="map-container">
             {googleMapsUrl ? (
-              <iframe 
-                src={googleMapsUrl} 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Shreenath Industries Location"
-              ></iframe>
+              <>
+                <iframe
+                  src={googleMapsUrlImage}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Shreenath Industries Location"
+                ></iframe>
+
+                {/* Overlay Link */}
+                <a
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 2,
+                    cursor: 'pointer',
+                  }}
+                  aria-label="Open Google Maps"
+                ></a>
+              </>
             ) : (
               <div className="map-placeholder">
                 <div className="placeholder-content">

@@ -42,9 +42,6 @@ const Footer = () => {
                 <Link to="/services" className="footer-link" onClick={handleLinkClick}>Services</Link>
               </li>
               <li>
-                <Link to="/facilities" className="footer-link" onClick={handleLinkClick}>Facilities</Link>
-              </li>
-              <li>
                 <Link to="/contact" className="footer-link" onClick={handleLinkClick}>Contact</Link>
               </li>
             </ul>
@@ -75,12 +72,6 @@ const Footer = () => {
           <div className="footer-social">
             <h3 className="footer-title">Connect With Us</h3>
             <div className="social-icons">
-              <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="social-icon">
-                <FaFacebook />
-              </a>
-              <a href={socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
-                <FaInstagram />
-              </a>
               <div onClick={handleWhatsAppClick} className="social-icon whatsapp">
                 <FaWhatsapp />
               </div>
