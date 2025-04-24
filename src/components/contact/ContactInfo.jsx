@@ -68,12 +68,6 @@ const ContactInfo = () => {
       <div className="social-media">
         <h3>Follow Us</h3>
         <div className="social-icons">
-          <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaFacebook />
-          </a>
-          <a href={socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaInstagram />
-          </a>
           <div onClick={handleWhatsAppClick} className="social-icon whatsapp">
             <FaWhatsapp />
           </div>
