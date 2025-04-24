@@ -60,9 +60,16 @@ const ContactInfo = () => {
           <FaClock />
         </div>
         <div className="info-content">
-          <h3>Business Hours</h3>
-          <p>{contactInfo.businessHours}</p>
-        </div>
+  <h3>Business Hours</h3>
+  <ul className="business-hours-list">
+    {Object.entries(contactInfo.businessHours).map(([day, hours]) => (
+      <li key={day}>
+        <strong>{day}:</strong> {hours}
+      </li>
+    ))}
+  </ul>
+</div>
+
       </div>
       
       <div className="social-media">
