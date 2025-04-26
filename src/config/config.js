@@ -127,12 +127,20 @@ export const config = {
     {
       id: 'laser-cutting',
       title: 'Laser Cutting Machine',
-      description: `• Utilizes advanced fiber laser technology for precision cutting
-      • Suitable for metals like steel, aluminum, brass, and more  
-      • High-speed cutting with minimal thermal distortion  
-      • Supports intricate designs and complex shapes  
-      • Reduces material waste with clean, burr-free edges  
-      • Ideal for both prototype and mass production`,
+      description: `At <strong>Shrinath Industries</strong>, we offer <strong>precision laser cutting services</strong> as part of our job work solutions. Our advanced <strong>laser cutting machine</strong> delivers high-quality, accurate, and consistent cuts on various sheet metals, catering to diverse industrial needs.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Custom sheet metal cutting</strong> with fine detail and smooth edges
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>High-speed production</strong> for bulk orders
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Cutting of various materials</strong> including MS, SS, and aluminum sheets
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Thickness capacity</strong>: Up to 10mm MS / 5mm SS
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>CAD/CAM integration</strong> for design-based precision cutting`,
       icon: 'FaLaser',
       image: laserCutting1,
       galleryImages: [
@@ -146,12 +154,20 @@ export const config = {
     {
       id: 'hydraulic-cutting',
       title: 'Hydraulic Cutting Machine',
-      description: `• Heavy-duty machine powered by a reliable hydraulic system
-      • Provides consistent pressure for clean, accurate cuts
-      • Handles thick sheets and tough materials with ease
-      • Low maintenance with a durable build
-      • Suitable for industrial and manufacturing operations
-      • Ensures operator safety with built-in protection features`,
+      description: `At <strong>Shrinath Industries</strong>, we offer <strong>high-precision hydraulic sheet cutting services</strong> tailored to meet the diverse needs of modern fabrication. Our advanced <strong>hydraulic cutting machine</strong> delivers clean, accurate, and efficient cuts—perfect for both small custom jobs and high-volume production.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Precise straight-line cutting</strong> of MS, SS, and aluminum sheets
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Heavy-duty cutting capacity</strong> for medium to thick materials
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Consistent quality</strong> with minimal edge deformation
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Thickness capability</strong>: Up to 6mm MS / 4mm SS
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Fast turnaround for <strong>custom and bulk sheet cutting jobs</strong>`,
       icon: 'FaCut',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -164,13 +180,20 @@ export const config = {
     {
       id: 'hydraulic-bending',
       title: 'Hydraulic Bending Machine',
-      description: `• Provides precise bending of sheet metal using hydraulic force
-      • Ideal for bending thick and tough materials with high accuracy
-      • Offers adjustable bending angles for versatile applications
-      • Equipped with a robust frame and hydraulic system for long-lasting use
-      • Allows for multiple bending processes with a single setup
-      • Suitable for both small-scale and large-scale production
-      • Ensures operator safety with advanced control systems and safety features`,
+      description: `At <strong>Shrinath Industries</strong>, we offer <strong>precision hydraulic bending services</strong> as part of our comprehensive fabrication solutions. Our <strong>hydraulic bending machine</strong> delivers accurate and consistent bends on a wide range of sheet metals, supporting both custom and large-scale production requirements.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Accurate <strong> angle bending</strong> for MS, SS, and aluminum sheets
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Capable of bending sheets up to <strong> 6mm thickness / 2500mm width</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ideal for creating <strong>boxes, panels, enclosures, and complex profiles</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• High repeatability for <strong>bulk bending operations</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Custom bending</strong> based on technical drawings or client specifications`,
       icon: 'FaIndustry',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -180,13 +203,21 @@ export const config = {
     },
     {
       id: 'seven-tank-process',
-      title: '7 Tank Process',
-      description: `• Essential surface treatment before powder coating or painting
-      • Removes grease, rust, and contaminants effectively
-      • Enhances adhesion of coating materials
-      • Increases corrosion resistance and durability
-      • Includes processes like degreasing, rinsing, phosphating, etc.
-      • Ensures a smooth, clean, and reactive surface`,
+      title: '7 Tank Pre-Treatment Process',
+      description: `At <strong>Shrinath Industries</strong>, we follow a <strong>7 Tank Pre-Treatment Process</strong> as a critical step in our <strong>in-house powder coating system</strong>. This process ensures <strong>excellent surface preparation</strong>, which enhances paint adhesion, corrosion resistance, and the overall durability of coated components.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Thorough cleaning and degreasing</strong> of metal surfaces
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Removal of <strong>rust, oil, scale, and contaminants</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Surface activation</strong> for better coating adhesion
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Pre-treatment for <strong> mild steel, galvanized, and aluminum components</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ensures <strong> long-lasting, high-quality powder coating finish</strong>`,
       icon: 'FaWater',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -198,12 +229,20 @@ export const config = {
     {
       id: 'powder-coating',
       title: 'Powder Coating Oven',
-      description: `• Cures powder-coated parts evenly for a long-lasting finish
-      • Maintains consistent temperature with uniform heat distribution
-      • Energy-efficient and eco-friendly operation
-      • Provides resistance to chipping, scratching, and UV damage
-      • Suitable for a wide range of metal components
-      • Available in various sizes for small to large parts`,
+      description: `At <strong>Shrinath Industries</strong>, our <strong>powder coating oven</strong> plays a vital role in delivering durable, high-quality finishes on fabricated components. Designed for <strong>uniform heating and efficient curing</strong>, our oven ensures that every part we coat achieves optimal strength, appearance, and corrosion resistance.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Even and consistent curing</strong> for all powder-coated parts
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Suitable for<strong> MS, SS, and aluminum components</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Supports a<strong> wide range of part sizes</strong> and shapes
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>High-temperature capability</strong> for faster turnaround
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Durable finish with <strong> excellent adhesion and surface protection </strong>`,
       icon: 'FaSprayCan',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -214,12 +253,20 @@ export const config = {
     {
       id: 'laser-welding',
       title: 'Laser Welding Machine',
-      description: `• Offers precise, clean welds with minimal heat impact
-      • Suitable for delicate and high-strength welding applications
-      • Reduces post-processing time with minimal distortion
-      • High-speed operation for improved productivity
-      • Ideal for stainless steel, aluminum, and similar metals
-      • Used in automotive, electronics, and precision fabrication`,
+      description: `At <strong>Shrinath Industries</strong>, we offer advanced <strong>laser welding services</strong> using precision technology for clean, strong, and aesthetically pleasing welds. Our <strong>laser welding machine</strong> enables us to handle intricate assemblies and delicate materials with unmatched accuracy and minimal distortion.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>High-precision welding</strong> for MS, SS, and aluminum
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ideal for<strong> thin sheets and complex geometries</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Minimal heat-affected zone</strong> (HAZ) and reduced warping
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Clean welds with <strong> little to no post-processing required</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Suitable for<strong> automotive parts, enclosures, electronics, and custom fabrication</strong>`,
       icon: 'FaFire',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -231,12 +278,20 @@ export const config = {
     {
       id: 'powder-coating-booth',
       title: 'Powder Coating Booth',
-      description: `• Provides a controlled environment for powder application
-      • Advanced filtration system minimizes powder waste
-      • Designed for operator safety and comfort
-      • Ensures even coating with high transfer efficiency
-      • Easy to clean and maintain
-      • Complies with industry safety and environmental standards`,
+      description: `At <strong>Shrinath Industries</strong>, our <strong>powder coating booth</strong> ensures efficient and controlled application of powder coatings to a variety of metal components. This booth is a crucial part of our coating process, allowing us to achieve a uniform, high-quality finish with excellent adhesion and durability.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Uniform powder application</strong> for consistent coating thickness
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Controlled environment</strong> to prevent contaminants from affecting the finish
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Suitable for coating<strong> MS, SS, and aluminum components</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ability to handle<strong> small to large batch sizes</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Supports both<strong> custom and high-volume orders</strong>`,
       icon: 'FaSprayCan',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
@@ -247,13 +302,21 @@ export const config = {
     },
     {
       id: 'hydraulic-punching',
-      title: 'Hydraulic Punching Machine',
-      description: `• Delivers powerful, accurate punching for sheet metals
-      • Supports various dies for custom shapes and holes
-      • Quick setup and easy operation
-      • Minimal material deformation during punching
-      • Suitable for heavy-duty, continuous production
-      • Strong frame and reliable hydraulic system for long-term use`,
+      title: 'Hydraulic Punching Services',
+      description: `At <strong>Shrinath Industries</strong>, we provide <strong>precision hydraulic punching services</strong> that cater to a wide range of industrial needs. Our <strong>hydraulic punching machine</strong> enables us to create high-quality, accurate holes and shapes in sheet metals, ensuring consistent results for both small and large production runs.
+<br />
+<br />
+<strong>What We Offer:</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Precision hole punching</strong> for MS, SS, and aluminum sheets
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Capable of producing a variety of <strong>shapes and sizes</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Custom punching</strong> according to specific designs and specifications
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• High-speed,<strong> consistent results </strong> with minimal tooling changes
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ideal for<strong> custom metal parts, panels, and enclosures</strong>`,
       icon: 'FaTools',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [

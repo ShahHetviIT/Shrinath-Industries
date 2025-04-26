@@ -224,15 +224,11 @@ const ServicesPage = () => {
                     )}
 
                     <div>
-                      <p className="service-detail-description">
-                        {currentService.description.split('• ').map((text, index) =>
-                          index === 0 ? text : (
-                            <React.Fragment key={index}>
-                              <br />• {text}
-                            </React.Fragment>
-                          )
-                        )}
-                      </p>
+                      <p className="service-detail-description" 
+                        dangerouslySetInnerHTML={{ 
+                          __html: currentService.description 
+                        }} 
+                      />
                     </div>
                     </div>
 

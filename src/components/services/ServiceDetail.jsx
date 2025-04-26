@@ -21,7 +21,7 @@ const ServiceDetail = ({ service }) => {
         </div>
         
         <div className="service-description">
-          <p>{service.description}</p>
+            <p>{service.description}</p>
           
           <h3 className="service-features-title">Key Features</h3>
           <ul className="service-features-list">
