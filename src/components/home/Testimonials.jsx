@@ -8,20 +8,20 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Rajesh Mehta',
-      company: 'Mehta Pharmaceutical Industries',
+      name: 'Pragnesh Shah',
+      company: 'Agricare Panoli',
       text: `${companyName} has been our trusted partner for electrical panel manufacturing for over 7 years. Their PCC panels have enhanced our facility's power distribution system with exceptional reliability and their prompt service support is outstanding.`,
     },
     {
       id: 2,
-      name: 'Sunil Patel',
-      company: 'Patel Engineering Works',
+      name: 'Bhavesh Patel',
+      company: 'ANBR Flexr Pvt Ltd',
       text: `We've installed multiple MCC panels from ${companyName} in our manufacturing unit. Their attention to detail in panel fabrication and precision in wiring work has resulted in zero downtime for our production line since installation.`,
     },
     {
       id: 3,
-      name: 'Amit Shah',
-      company: 'Shah Automation Systems',
+      name: 'Pradeepbhai',
+      company: 'Shri Ganesh Remedies',
       text: `The PLC automation panels provided by ${companyName} have significantly improved our production efficiency by 35%. Their technical expertise in designing custom control systems and responsive after-sales service make them our go-to electrical contractor.`,
     }
   ];
