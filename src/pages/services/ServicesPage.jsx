@@ -138,6 +138,8 @@ const ServicesPage = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const serviceFromUrl = searchParams.get('service');
+  const serviceTitleRef = useRef(null);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   const [selectedService, setSelectedService] = useState(serviceFromUrl || mainServices[0]?.id);
 
@@ -155,13 +157,54 @@ const ServicesPage = () => {
     }
   }, [serviceFromUrl, location.state]);
 
+  // Check if the current view is mobile
+  useEffect(() => {
+    const checkMobileView = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobileView();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobileView);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobileView);
+  }, []);
+
   // Helper to get icon component
   const getIconComponent = (iconName) => {
     const IconComponent = iconName && FaIcons[iconName] ? FaIcons[iconName] : FaIcons.FaTools;
     return <IconComponent />;
   };
 
+  const handleServiceClick = (serviceId) => {
+    setSelectedService(serviceId);
+    
+    // Scroll to service title in mobile view after a short delay
+    // to allow for state update and rendering
+    if (isMobileView && serviceTitleRef.current) {
+      setTimeout(() => {
+        serviceTitleRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  };
+
   const currentService = mainServices.find(service => service.id === selectedService);
+
+  // Function to format description with proper bullet points
+  const formatDescription = (description) => {
+    // Replace HTML entities with proper bullet points and formatting
+    const formattedDesc = description
+      .replace(/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• (.*?)<br \/>/g, '<div class="bullet-point">$1</div>')
+      .replace(/&nbsp;/g, ' ');
+    
+    return formattedDesc;
+  };
 
   return (
     <Layout>
@@ -187,7 +230,7 @@ const ServicesPage = () => {
                     <div
                       key={service.id}
                       className={`service-item ${selectedService === service.id ? 'active' : ''}`}
-                      onClick={() => setSelectedService(service.id)}
+                      onClick={() => handleServiceClick(service.id)}
                     >
                       <div className="service-item-icon">
                         {getIconComponent(service.icon)}
@@ -206,7 +249,7 @@ const ServicesPage = () => {
                       <div className="service-detail-icon">
                         {getIconComponent(currentService.icon)}
                       </div>
-                      <h2 className="service-detail-title">{currentService.title}</h2>
+                      <h2 ref={serviceTitleRef} serviceId={currentService.id} className="service-detail-title">{currentService.title}</h2>
                     </div>
 
                     <div>
@@ -214,7 +257,6 @@ const ServicesPage = () => {
                       <div className="service-gallery">
                         <ImageCarousel
                           images={currentService.galleryImages}
-                          serviceId={currentService.id}
                         />
                       </div>
                     ) : (
@@ -226,7 +268,7 @@ const ServicesPage = () => {
                     <div>
                       <p className="service-detail-description" 
                         dangerouslySetInnerHTML={{ 
-                          __html: currentService.description 
+                          __html: formatDescription(currentService.description)
                         }} 
                       />
                     </div>

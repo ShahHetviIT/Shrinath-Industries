@@ -173,7 +173,7 @@ export const config = {
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Thickness capability</strong>: Up to 6mm MS / 4mm SS
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Fast turnaround for <strong>custom and bulk sheet cutting jobs</strong>`,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Fast turnaround</strong> for custom and bulk sheet cutting jobs`,
       icon: 'FaCut',
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
       galleryImages: [
