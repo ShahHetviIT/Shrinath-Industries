@@ -3,7 +3,7 @@ import config from '../../config/config';
 import '../../styles/components/ContactInfo.css';
 
 const ContactInfo = () => {
-  const { contactInfo, socialMedia } = config;
+  const { contactInfo, socialMedia, googleMapsUrl } = config;
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${socialMedia.whatsapp}`, '_blank');
@@ -12,7 +12,7 @@ const ContactInfo = () => {
   return (
     <div className="contact-info-container">
       <h2 className="info-title">Contact Information</h2>
-      
+
       <div className="info-item">
         <div className="info-icon">
           <FaPhone />
@@ -22,7 +22,7 @@ const ContactInfo = () => {
           <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
         </div>
       </div>
-      
+
       <div className="info-item">
         <div className="info-icon">
           <FaEnvelope />
@@ -32,17 +32,26 @@ const ContactInfo = () => {
           <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
         </div>
       </div>
-      
+
       <div className="info-item">
         <div className="info-icon">
           <FaMapMarkerAlt />
         </div>
         <div className="info-content">
           <h3>Address</h3>
-          <p>{contactInfo.address}</p>
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            aria-label="Open Google Maps"
+          >
+            <p style={{ margin: 0, cursor: 'pointer' }}>{contactInfo.address}</p>
+          </a>
+
         </div>
       </div>
-      
+
       <div className="info-item">
         <div className="info-icon">
           <FaWhatsapp onClick={handleWhatsAppClick} style={{ cursor: 'pointer' }} />
@@ -54,24 +63,24 @@ const ContactInfo = () => {
           </p>
         </div>
       </div>
-      
+
       <div className="info-item">
         <div className="info-icon">
           <FaClock />
         </div>
         <div className="info-content">
-  <h3>Business Hours</h3>
-  <ul className="business-hours-list">
-    {Object.entries(contactInfo.businessHours).map(([day, hours]) => (
-      <li key={day}>
-        <strong>{day}:</strong> {hours}
-      </li>
-    ))}
-  </ul>
-</div>
+          <h3>Business Hours</h3>
+          <ul className="business-hours-list">
+            {Object.entries(contactInfo.businessHours).map(([day, hours]) => (
+              <li key={day}>
+                <strong>{day}:</strong> {hours}
+              </li>
+            ))}
+          </ul>
+        </div>
 
       </div>
-      
+
       <div className="social-media">
         <h3>Follow Us</h3>
         <div className="social-icons">

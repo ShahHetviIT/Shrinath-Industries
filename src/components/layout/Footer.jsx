@@ -5,7 +5,7 @@ import '../../styles/components/Footer.css';
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const { contactInfo, socialMedia, companyName } = config;
+  const { contactInfo, socialMedia, companyName, googleMapsUrl } = config;
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${socialMedia.whatsapp}`, '_blank');
@@ -53,7 +53,16 @@ const Footer = () => {
               <div className="contact-icon">
                 <FaMapMarkerAlt />
               </div>
-              <p className="contact-text">{contactInfo.address}</p>
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                aria-label="Open Google Maps"
+              >
+                <p style={{ margin: 0, cursor: 'pointer' }}>{contactInfo.address}</p>
+              </a>
+
             </div>
             <div className="contact-item">
               <div className="contact-icon">
