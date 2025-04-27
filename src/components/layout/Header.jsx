@@ -75,6 +75,15 @@ const Header = () => {
                   Contact
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link 
+                  to="/banking" 
+                  className={`nav-link ${location.pathname === '/banking' ? 'active' : ''}`} 
+                  onClick={handleLinkClick}
+                >
+                  Banking Details
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

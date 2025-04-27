@@ -44,6 +44,9 @@ const Footer = () => {
               <li>
                 <Link to="/contact" className="footer-link" onClick={handleLinkClick}>Contact</Link>
               </li>
+              <li>
+                <Link to="/banking" className="footer-link" onClick={handleLinkClick}>Banking Details</Link>
+              </li>
             </ul>
           </div>
 

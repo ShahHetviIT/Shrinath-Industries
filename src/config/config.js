@@ -68,7 +68,13 @@ export const config = {
     contactPerson: import.meta.env.CONTACT_PERSON,
     bankReference: import.meta.env.BANK_REFERENCE,
     established: import.meta.env.ESTABLISHED_DATE,
-    introduction: import.meta.env.COMPANY_INTRODUCTION
+    introduction: import.meta.env.COMPANY_INTRODUCTION,
+    bankDetails: {
+      bankName: import.meta.env.BANK_NAME,
+      branch: import.meta.env.BRANCH,
+      accountNo: import.meta.env.ACCOUNT_NO,
+      ifscCode: import.meta.env.IFSC_CODE
+    }
   },
 
   // Key Services
