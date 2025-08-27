@@ -22,41 +22,39 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="about-section section">
-      <div className="container">
-        <div className="about-content">
-          <div className="about-text">
-            <h2 className="section-title text-left">About {companyName}</h2>
-            <p className="about-description">
-              {organizationDetails.introduction}
-            </p>
+    <div className="about-section">
+      <div className="about-content-home">
+        <div className="about-text">
+          <p className="about-description">
+            {organizationDetails.introduction}
+          </p>
 
-            <div className="about-highlights">
-              {highlights.map((highlight, index) => (
-                <div key={index} className="highlight-item">
-                  <FaCheckCircle className="highlight-icon" />
-                  <span>{highlight}</span>
-                </div>
-              ))}
-            </div>
-
-            <Link to="/about" className="btn" onClick={handleLinkClick}>
-              Learn More About Us
-            </Link>
-          </div>
-          
-          <div className="about-image-container">
-            <div className="about-image">
-              <img src={jatilImage} alt="Jatil P. Shah - SHRINATH INDUSTRIES" />
-              <div className="image-caption">
-                <h3>Quality & Reliability</h3>
-                <p>Our Commitment to Excellence</p>
+          <div className="about-highlights">
+            {highlights.map((highlight, index) => (
+              <div key={index} className="highlight-item">
+                <FaCheckCircle className="highlight-icon" />
+                <span>{highlight}</span>
               </div>
+            ))}
+          </div>
+
+          <Link to="/about" className="btn" onClick={handleLinkClick}>
+            Learn More About Us
+          </Link>
+        </div>
+        
+        <div className="about-image-container">
+        <h2 className="section-title text-left">About {companyName}</h2>
+          <div className="about-image about-image-home">
+            <img src={jatilImage} alt="Jatil P. Shah - SHRINATH INDUSTRIES" />
+            <div className="image-caption">
+              <h3>Quality & Reliability</h3>
+              <p>Our Commitment to Excellence</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -24,9 +24,10 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+  line-height: 1.4;
   color: var(--text-color);
   background-color: var(--light-color);
+  font-size: 14px;
 }
 
 a {
@@ -86,21 +87,21 @@ img {
 }
 
 .section {
-  padding: 2rem 0 0;
+  padding: 1.5rem 0 0;
   background-color: var(--light-color);
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--primary-color);
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: var(--text-light);
 }
 

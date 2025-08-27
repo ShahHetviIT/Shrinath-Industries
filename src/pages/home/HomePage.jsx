@@ -2,6 +2,7 @@ import Carousel from '../../components/home/Carousel';
 import ServiceHighlights from '../../components/home/ServiceHighlights';
 import AboutSection from '../../components/home/AboutSection';
 import Testimonials from '../../components/home/Testimonials';
+import ClientsCarousel from '../../components/home/ClientsCarousel';
 import CTA from '../../components/common/CTA';
 import Layout from '../../components/layout/Layout';
 import config from '../../config/config';
@@ -14,11 +15,15 @@ const HomePage = () => {
     <Layout>
       <Carousel />
       
-      <ServiceHighlights />
-      
-      <AboutSection />
+      <ClientsCarousel />
+
+      <div className="services-about-container">
+        <ServiceHighlights />
+        <AboutSection />
+      </div>
       
       <Testimonials />
+      
       
       <CTA 
         title="Need Electrical Panel Solutions?" 

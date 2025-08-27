@@ -1,4 +1,43 @@
 /* Home page specific styles */
+
 .home-page {
-  /* Additional styles specific to the home page if needed */
-} 
+    /* Additional styles specific to the home page if needed */
+}
+
+
+/* Services and About section side-by-side layout */
+
+.services-about-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.25rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    align-items: start;
+}
+
+
+/* Responsive design for side-by-side layout */
+
+@media (max-width: 1024px) {
+    .services-about-container {
+        gap: 1.25rem;
+        padding: 0 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-about-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-about-container {
+        gap: 1rem;
+        padding: 0 1.5rem;
+    }
+}
