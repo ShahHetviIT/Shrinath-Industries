@@ -6,7 +6,7 @@ import uplLogo from '../../assets/UPL_Logo.png';
 import lupinLogo from '../../assets/LUPIN_LOGO.png';
 import cadilaLogo from '../../assets/cadila_logo.png';
 import abbottLogo from '../../assets/abbott-logo.png';
-import britaniaLogo from '../../assets/britannia_logo.png';
+import britaniaLogo from '../../assets/Britannia_logo.png';
 import pepsicoLogo from '../../assets/PepsiCo_logo.svg';
 import aartiLogo from '../../assets/Aarti.jpg';
 
